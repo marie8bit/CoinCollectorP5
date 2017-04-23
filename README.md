@@ -1,5 +1,7 @@
 "# CoinCollectorP5" 
+
 To set up the application in command line type
+
 python setup.py install
 
 The application uses urls to display images.
