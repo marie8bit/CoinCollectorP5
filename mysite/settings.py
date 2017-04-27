@@ -57,7 +57,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': ['statecoin50/fixtures', os.path.join(PROJECT_ROOT, "templates/statecoin50")],
-        
+
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,5 +120,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
+
+MEDIA_URL = '/resources/'
+MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'resources')
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')

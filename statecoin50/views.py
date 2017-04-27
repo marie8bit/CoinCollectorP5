@@ -27,7 +27,8 @@ def coin_collector(request):
             state = key
             abr= states_abbr[key]
             owned = False
-            url= 'https://www.usmint.gov/images/mint_programs/50sq_program/states/'+abr+'_Designs.gif'
+            url = 'resources/stateImage/'+abr+'.jpg'
+            #url= 'https://www.usmint.gov/images/mint_programs/50sq_program/states/'+abr+'_Designs.gif'
             caseState = state.lower()
             dex = caseDetsLower.index(caseState)
             dates = state_dets[dex+1]
@@ -50,7 +51,7 @@ def coin_collector(request):
                 number = 1
             all_state_map[coin.stAbbr]=number
 
-        map_us = folium.Map(location=[50, -122], zoom_start=3)
+        map_us = folium.Map(location=[50, -118], zoom_start=3)
         us_states_file='statecoin50/fixtures/us_states.json'
         #state_list=list(us_states_file)
         #us_states_file=us_states_file.sort()
@@ -61,7 +62,7 @@ def coin_collector(request):
                         key_on='id',
                         fill_color = 'YlGn', fill_opacity=0.7, line_opacity =0.2,
                         threshold_scale = [1,3,5,7,10],
-                        legend_name = "Coins Collected: Yellow= no - Green = Yes")
+                        legend_name = "Coins Collected: Yellow= Not Collected - Green = Collected")
         map_us.save('statecoin50/templates/statecoin50/map_coins.html')
         return render(request, 'statecoin50/coin_collector.html', {'coins':coins})
         #
